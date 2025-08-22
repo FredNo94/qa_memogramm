@@ -1,0 +1,156 @@
+.admin-panel {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.admin-panel h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.upload-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.upload-section h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload-form input,
+.upload-form textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.upload-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.upload-form button {
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.upload-form button:hover {
+    background: #218838;
+}
+
+.delete-section {
+    padding: 20px;
+    background: #fff3cd;
+    border: 2px solid #ffeaa7;
+    border-radius: 10px;
+}
+
+.delete-section h3 {
+    margin-bottom: 15px;
+    color: #856404;
+}
+
+.delete-form {
+    display: flex;
+    gap: 10px;
+}
+
+.delete-form input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ffeaa7;
+    border-radius: 5px;
+}
+
+.delete-form button {
+    padding: 12px 20px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-form button:hover {
+    background: #c82333;
+}
+
+.meme-list {
+    margin-top: 30px;
+}
+
+.meme-list h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.meme-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.meme-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meme-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.meme-item .meme-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.status-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

@@ -57,3 +57,30 @@ body {
 .back-button:hover {
     background: #ff5252;
 }
+
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    color: white;
+  }
+  
+  .error {
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff6b6b;
+    border-radius: 10px;
+    margin: 20px;
+  }
+  
+  .error button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .error button:hover {
+    background: #ff5252;
+  }

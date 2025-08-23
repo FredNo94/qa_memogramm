@@ -8,13 +8,27 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+// Определяем разрешенные домены
+const allowedOrigins = [
+  'https://qamemogrammv2.vercel.app',
+  'http://localhost:3000'
+];
+
+// Настройка CORS
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-client-domain.vercel.app'] 
-    : ['http://localhost:3000'],
+  origin: function (origin, callback) {
+    // Разрешаем запросы без origin (например, из мобильных приложений или Postman)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'memes')));
 
@@ -135,28 +149,3 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`Server running on port ${PORT}`);
   });
 }
-
-
-// Настройка CORS
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Разрешаем запросы из любого origin в development
-    if (process.env.NODE_ENV !== 'production') {
-      callback(null, true);
-    } else {
-      // В production разрешаем только с вашего домена
-      const allowedOrigins = [
-        'https://qa-memology-client.vercel.app',
-        'https://qa-memology-client.vercel.app/'
-      ];
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    }
-  },
-  credentials: true
-};
-
-app.use(cors(corsOptions));
